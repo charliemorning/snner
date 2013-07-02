@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block titleBlock %}{% endblock %}
+
+
+{% block javascriptBlock %}
+
+{% endblock %}
+
+
+
+{% block cssBlock %}
+
+{% endblock %}
+
+{% block initialBlock %}
+    <script type="text/javascript">
+
+        var recognize = function() {
+
+            var uid = $('#uid').val();
+            var gte = parseInt($('#gte').val());
+            var lte = parseInt($('#lte').val());
+
+            recognizeByIDRange(uid, gte);
+
+
+        };
+    </script>
+
+{% endblock %}
+
+
+
+{% block navbarBlock %}
+
+
+{% endblock %}
+
+{% block bodyBlock %}
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="span10">
+                <div class="well">
+                    User ID(s): <input type="text" id="uid" value="">
+                    Start ID: <input type="text" id="gte" value="1">
+                    End ID: <input type="text" id="lte" value="-1">
+                    <button id="recognize" onclick="recognize()">Recognize</button>
+                </div>
+            </div>
+            <div class="span10" id="weiboTable">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
+

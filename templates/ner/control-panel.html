@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+{% block titleBlock %}{% endblock %}
+
+
+{% block javascriptBlock %}
+
+{% endblock %}
+
+
+
+{% block cssBlock %}
+
+{% endblock %}
+
+{% block initialBlock %}
+    <script type="text/javascript">
+
+        var pickup = function() {
+            var keyword = $('#keyword').val();
+            getStatusesPagedByKeyword(1, keyword, 'weiboTable');
+        };
+
+        var recognize = function() {
+
+            var ids = $('#idsStr').text();
+
+            debugger
+
+            recognizeByIDs(ids, 0);
+
+        };
+
+        /**
+         * recognize with sns
+         */
+        var srecognize = function() {
+
+            var ids = $('#idsStr').text();
+
+            debugger
+
+            recognizeByIDs(ids, 1);
+
+        };
+    </script>
+
+{% endblock %}
+
+
+
+{% block navbarBlock %}
+
+
+{% endblock %}
+
+{% block bodyBlock %}
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="span10">
+                <div class="well">
+                    <input type="text" id="keyword" value="iphone,ipad">
+                    <button id="selectWeibo" onclick="pickup()">Select Weibo</button>
+                    <button id="recognize" onclick="recognize()">Recognize</button>
+                    <button id="srecognize" onclick="srecognize()">SNS Recognize</button>
+                </div>
+            </div>
+            <div class="span10" id="weiboTable">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
+

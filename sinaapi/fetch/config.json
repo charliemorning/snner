@@ -1,0 +1,16 @@
+{
+    "api_url" : "https://api.weibo.com/2/statuses/querymid.json",
+    "access_token" : "2.008DuwdB5lk2MEeeb9ea7f7ep1jFWE",
+
+    "user" : {
+        "get_one" : "https://api.weibo.com/2/users/show.json"
+    },
+
+    "relation" : {
+        "active_fans" : "https://api.weibo.com/2/friendships/followers/active.json"
+    },
+
+    "status" : {
+        "get" : "https://api.weibo.com/2/statuses/user_timeline.json"
+    }
+}

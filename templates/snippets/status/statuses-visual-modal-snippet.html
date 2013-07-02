@@ -1,0 +1,17 @@
+{% include "snippets/status/status-table-snippets.html" %}
+
+
+{% if statuses.has_previous %}
+    <a id="firstPage" href="javascript:statusGotoPage('{{ uid }}', 1, 'tableParent')">First</a>
+    <a id="prevPage" href="javascript:statusGotoPage('{{ uid }}', {{ statuses.previous_page_number }}, 'tableParent')">Prev</a>
+{% endif %}
+
+<span class="Current">
+    {{ statuses.number }} / {{ statuses.paginator.num_pages }}
+</span>
+
+{% if statuses.has_next %}
+    <a id="nextPage" href="javascript:statusGotoPage('{{ uid }}', {{ statuses.next_page_number }}, 'tableParent')">Next</a>
+    <a id="lastPage" href="javascript:statusGotoPage('{{ uid }}', {{ statuses.paginator.num_pages }}, 'tableParent')">Last</a>
+{% endif %}
+Total: {{ statuses.paginator.count}}

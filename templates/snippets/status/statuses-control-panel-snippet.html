@@ -1,0 +1,20 @@
+{% include "snippets/status/status-table-snippets.html" %}
+
+
+{% if statuses.has_previous %}
+    <a id="firstPage" href="javascript:getStatusesPagedByKeyword(1, 'weiboTable')">First</a>
+    <a id="prevPage" href="javascript:getStatusesPagedByKeyword({{ statuses.previous_page_number }}, '{{ keywordStr }}', 'weiboTable')">Prev</a>
+{% endif %}
+
+<span class="Current">
+    {{ statuses.number }} / {{ statuses.paginator.num_pages }}
+</span>
+
+{% if statuses.has_next %}
+    <a id="nextPage" href="javascript:getStatusesPagedByKeyword({{ statuses.next_page_number }}, '{{ keywordStr }}', 'weiboTable')">Next</a>
+    <a id="lastPage" href="javascript:getStatusesPagedByKeyword({{ statuses.paginator.num_pages }}, '{{ keywordStr }}', 'weiboTable')">Last</a>
+{% endif %}
+Total: {{ statuses.paginator.count}}
+
+
+<div id="idsStr" style="display:none">{{ ids }}</div>

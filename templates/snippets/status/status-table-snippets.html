@@ -1,0 +1,22 @@
+{% comment %}
+This is only for being included!
+Do not use directly!
+{% endcomment %}
+<table class="table table-condensed table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Text</th>
+            <th>Time</th>
+            <th>Entity</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for status in statuses %}
+        <tr id="{{ status.wid }}">
+            <td>{{ status.text }}</td>
+            <td>{{ status.created_at|date:"Y-m-d H:i" }}</td>
+            <td><a href="javascript:showEntity('{{ status.wid }}')">show</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+
+{% block titleBlock %}{% endblock %}
+
+
+{% block javascriptBlock %}
+{% endblock %}
+
+
+
+{% block cssBlock %}
+
+{% endblock %}
+
+
+
+{% block initialBlock %}
+    <script type="text/javascript">
+
+        function init(){
+            alert($('#uid').val())
+
+            $.ajax({
+                url:'/sinaapi/user/get',
+                type:'GET',
+                data: {
+                    uid: $('#uid').val()
+                },
+                async: false,
+                cache: false,
+                dataType: 'html',
+                success: function(results){
+                    $.ajax({
+                        url:'/sinaapi/relation/fans/active',
+                        type:'GET',
+                        data: {
+                            uid: $('#uid').val()
+                        },
+                        async: false,
+                        dataType: 'html',
+                        cache: false,
+                        success: function(results){
+                            alert('success')
+                        },
+                        error: function(err){
+                            alert(err)
+                        }
+                    });
+
+                },
+                error: function(err){
+                    alert(err)
+                }
+            });
+        }
+
+        function net(){
+            $.ajax({
+                url:'/sinaapi/net',
+                type:'GET',
+                data: {
+                    ids: $('#ids').val()
+                },
+                async: false,
+                dataType: 'html',
+                cache: false,
+                success: function(results){
+                    alert('success')
+                },
+                error: function(err){
+                    alert(err)
+                }
+            });
+        }
+
+        function fnet(){
+            $.ajax({
+                url:'/sinaapi/net',
+                type:'GET',
+                data: {
+                    f: 1
+                },
+                async: false,
+                dataType: 'html',
+                cache: false,
+                success: function(results){
+                    alert('success')
+                },
+                error: function(err){
+                    alert(err)
+                }
+            });
+        }
+
+    </script>
+{% endblock %}
+
+
+{% block navbarBlock %}
+<a class="brand" href="#"><strong>SNS NER</strong></a>
+<ul class="nav">
+	<li><a href="#"></a>Visual</li>
+	<li><a href="#"></a>List</li>
+</ul>
+
+{% endblock %}
+
+{% block bodyBlock %}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <div class="span12">
+                <input type="text" id="uid" value="1987543647">
+                <button  id="init" onclick="init()">Init</button>
+
+                <input type="text" id="ids" value="1987543647">
+                <button  id="net" onclick="net()">Net</button>
+                <button  id="fnet" onclick="fnet()">FNet</button>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

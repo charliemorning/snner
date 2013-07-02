@@ -1,0 +1,36 @@
+<ul role="menu" aria-labelledby="dLabel">
+    <li>ID: {{ user.idstr }} </li>
+
+    <li>Name: {{ user.name }} </li>
+    <li>Gender: {{ user.gender }} </li>
+    <li>Verified: {{ user.verified }} </li>
+    <li>Status: {{ user.statuses_count }} </li>
+    <li>Followers: {{ user.followers_count }} </li>
+    <li>Friends: {{ user.friends_count }} </li>
+    <li>BiFriends: {{ user.bi_followers_count }} </li>
+
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Action</a>
+        <ul class="dropdown-menu">
+            <li><a href="javascript:recognize('{{ user.idstr }}', 0)">Recognize Entity</a></li>
+            <li><a href="javascript:recognize('{{ user.idstr }}', 1)">Recognize Entity with SNS</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Fetch Data</a>
+        <ul class="dropdown-menu">
+            <li><a href="javascript:getAllStatuses('{{ user.idstr }}')">Get Statuses</a></li>
+            <li><a href="javascript:getActiveFans('{{ user.idstr }}')">Get Active Fans</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown-submenu">
+        <a tabindex="-1" href="#">Detail Info</a>
+        <ul class="dropdown-menu">
+            <li><a href="javascript:showStatusModal('{{ user.idstr }}')">Statuses</a></li>
+            <li><a href="#">Friends</a></li>
+        </ul>
+    </li>
+    <li><a href="javascript:hideNodeInfo();">close</a></li>
+</ul>

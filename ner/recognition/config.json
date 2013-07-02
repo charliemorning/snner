@@ -1,0 +1,4 @@
+{
+    "model" : "%root%/corpus/model",
+    "model_sns" : "%root%/corpus/model_sns"
+}

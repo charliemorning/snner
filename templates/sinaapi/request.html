@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block titleBlock %}{% endblock %}
+
+
+{% block javascriptBlock %}
+{% endblock %}
+
+
+
+{% block cssBlock %}
+
+{% endblock %}
+
+
+
+{% block initialBlock %}
+
+{% endblock %}
+
+
+{% block navbarBlock %}
+
+</ul>
+
+{% endblock %}
+
+{% block bodyBlock %}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <form action="/sinaapi/status/cond_form" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                <input type="submit" value="Submit" />
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
