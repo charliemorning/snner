@@ -14,40 +14,40 @@ class SNUser(models.Model):
 
 
     idstr = models.CharField(max_length=15)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255,null=True)
 
-    screen_name = models.CharField(max_length=255)
+    screen_name = models.CharField(max_length=255,null=True)
 
-    domain = models.CharField(max_length=255)
+    domain = models.CharField(max_length=255,null=True)
 
-    gender = models.CharField(max_length=3)
-    location = models.CharField(max_length=255)
-    city = models.CharField(max_length=5)
-    province = models.CharField(max_length=5)
-    lang = models.CharField(max_length=15)
-    description = models.CharField(max_length=1023)
+    gender = models.CharField(max_length=3, null=True)
+    location = models.CharField(max_length=255, null=True)
+    city = models.CharField(max_length=5, null=True)
+    province = models.CharField(max_length=5, null=True)
+    lang = models.CharField(max_length=15, null=True)
+    description = models.CharField(max_length=1023, null=True)
 
-    verified = models.BooleanField()
+    verified = models.NullBooleanField(null=True)
 
-    bi_followers_count = models.IntegerField()
-    followers_count = models.IntegerField()
-    friends_count = models.IntegerField()
-    statuses_count = models.IntegerField()
-    favourites_count = models.IntegerField()
-    online_status = models.IntegerField()
-    block_word = models.IntegerField()
-    star = models.IntegerField()
+    bi_followers_count = models.IntegerField(null=True)
+    followers_count = models.IntegerField(null=True)
+    friends_count = models.IntegerField(null=True)
+    statuses_count = models.IntegerField(null=True)
+    favourites_count = models.IntegerField(null=True)
+    online_status = models.IntegerField(null=True)
+    block_word = models.IntegerField(null=True)
+    star = models.IntegerField(null=True)
 
-    allow_all_comment = models.BooleanField()
-    allow_all_act_msg = models.BooleanField()
-    geo_enabled = models.BooleanField()
+    allow_all_comment = models.NullBooleanField(null=True)
+    allow_all_act_msg = models.NullBooleanField(null=True)
+    geo_enabled = models.NullBooleanField(null=True)
 
-    profile_url = models.CharField(max_length=31)
-    profile_image_url = models.CharField(max_length=255)
-    avatar_large = models.URLField()
+    profile_url = models.CharField(max_length=31, null=True)
+    profile_image_url = models.CharField(max_length=255, null=True)
+    avatar_large = models.URLField(null=True)
 
 
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(null=True)
     insert_at = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now=True)
 
